@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b446eggjpcil6"]
+
+[ext_resource type="PackedScene" uid="uid://1hxj2hrqpk54" path="res://assets/models/spaceships/Imperial/Blend/Imperial.blend" id="1_xhont"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Imperial2" parent="." instance=ExtResource("1_xhont")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)

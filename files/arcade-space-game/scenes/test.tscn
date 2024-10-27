@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2euxygvdesbs"]
+
+[ext_resource type="PackedScene" uid="uid://c80f13m6xwfxk" path="res://prepped/player.tscn" id="1_83lj4"]
+[ext_resource type="Shader" path="res://assets/shaders/space.gdshader" id="2_hlq6h"]
+[ext_resource type="PackedScene" uid="uid://c00yxw1gsli3" path="res://prepped/star.tscn" id="3_vlvt2"]
+[ext_resource type="PackedScene" uid="uid://b446eggjpcil6" path="res://prepped/star_cruiser.tscn" id="4_ifn3u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0nvr4"]
+shader = ExtResource("2_hlq6h")
+shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
+shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.08
+shader_parameter/star_twinkle_speed = 0.8
+shader_parameter/star_twinkle_intensity = 0.2
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 3
+
+[sub_resource type="Sky" id="Sky_onmwu"]
+sky_material = SubResource("ShaderMaterial_0nvr4")
+
+[sub_resource type="Environment" id="Environment_n31ow"]
+background_mode = 2
+background_energy_multiplier = 4.87
+sky = SubResource("Sky_onmwu")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 3.45
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_83lj4")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n31ow")
+
+[node name="Star" parent="." instance=ExtResource("3_vlvt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 460, 257, 412)
+
+[node name="Node3D" parent="." instance=ExtResource("4_ifn3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114, 83.5624, 303)
+
+[node name="Node3D2" parent="." instance=ExtResource("4_ifn3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1862, 97.272, 349)
+
+[node name="Node3D3" parent="." instance=ExtResource("4_ifn3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.0966, 119.199, 349)
+
+[node name="Node3D4" parent="." instance=ExtResource("4_ifn3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202.514, 37.0811, 349)
+
+[node name="Node3D5" parent="." instance=ExtResource("4_ifn3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.9588, 24.9835, 391)

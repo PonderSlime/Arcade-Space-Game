@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c80f13m6xwfxk"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_3x12e"]
+[ext_resource type="PackedScene" uid="uid://wy054pmcttr5" path="res://assets/models/spaceships/Executioner/Blend/Executioner.blend" id="1_ojy2e"]
+[ext_resource type="Script" path="res://scripts/interpolated-camera.gd" id="3_yfnv3"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0gdst"]
+
+[node name="Player" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+script = ExtResource("1_3x12e")
+
+[node name="Executioner2" parent="Player" instance=ExtResource("1_ojy2e")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("ConvexPolygonShape3D_0gdst")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("3_yfnv3")
+target = NodePath("../Player")
+offset = Vector3(0, 0, -10)

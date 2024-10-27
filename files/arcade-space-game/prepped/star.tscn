@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c00yxw1gsli3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjd6v"]
+emission_enabled = true
+emission = Color(0.948599, 0.817142, 0.632544, 1)
+emission_energy_multiplier = 3.44
+
+[sub_resource type="SphereMesh" id="SphereMesh_s27kx"]
+radius = 100.0
+height = 200.0
+
+[node name="Star" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_wjd6v")
+mesh = SubResource("SphereMesh_s27kx")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 3.0
+omni_range = 10000.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
